@@ -8,7 +8,8 @@
     "start": "next start",
     "postinstall": "husky install",
     "format": "prettier --cache --write .",
-    "lint": "eslint --cache ."
+    "lint": "eslint --cache .",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "next": "latest",
@@ -27,6 +28,9 @@
     "typescript": "latest"
   },
   "lint-staged": {
-    "src/**/*.{ts, tsx}": "eslint --fix"
+    "**/*.{ts,tsx}": [
+      "eslint --fix .",
+      "prettier --write --cache ."
+    ]
   }
 }
