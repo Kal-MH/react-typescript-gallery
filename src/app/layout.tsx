@@ -1,8 +1,16 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bree_Serif } from "next/font/google";
+import { Providers } from "./providers";
+import Footer from "@/layouts/footer/Footer";
+import { CSSReset } from "@chakra-ui/react";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const breeSerif = Bree_Serif({
+  weight: ["400"],
+  preload: true,
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={breeSerif.className}>
+        <CSSReset />
+        <Providers>{children}</Providers>
+        <Footer />
+      </body>
     </html>
   );
 }

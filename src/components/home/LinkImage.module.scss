@@ -1,0 +1,11 @@
+.gridItem:hover {
+  filter: grayscale(0) !important;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  z-index: 3;
+  position: relative;
+}
+
+.gridItem {
+  transition: 0.3s;
+}
