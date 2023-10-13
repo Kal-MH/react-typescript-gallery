@@ -13,6 +13,15 @@ const getPostsAll = async () => {
   console.log(data);
   return data;
 };
+const mockGetPostsAll = async () => {
+  const res = await fetch("/api/posts-get", {
+    method: "GET",
+  });
+
+  const { data } = await res.json();
+  console.log(data);
+  return data;
+};
 
 export default function Home() {
   const { mutate, isLoading } = usePostsGetAll({
@@ -31,6 +40,7 @@ export default function Home() {
       {isLoading && <h1>Loading...</h1>}
       <button onClick={() => mutate()}>React-query Click!</button>
       <button onClick={() => getPostsAll()}>API routes Click!</button>
+      <button onClick={() => mockGetPostsAll()}>MSW Click!</button>
       <MainGrid />
     </main>
   );

@@ -4,6 +4,7 @@ import { Bree_Serif } from "next/font/google";
 import { Providers } from "./providers";
 import Footer from "@/layouts/footer/Footer";
 import { CSSReset } from "@chakra-ui/react";
+import MSW from "@/components/common/MSW";
 
 // const inter = Inter({ subsets: ["latin"] });
 const breeSerif = Bree_Serif({
@@ -26,10 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={breeSerif.className}>
         <CSSReset />
-        <Providers>
-          {children}
-          <Footer />
-        </Providers>
+        <MSW>
+          <Providers>
+            {children}
+            <Footer />
+          </Providers>
+        </MSW>
       </body>
     </html>
   );
