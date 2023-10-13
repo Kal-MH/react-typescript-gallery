@@ -26,8 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={breeSerif.className}>
         <CSSReset />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
