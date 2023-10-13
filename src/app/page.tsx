@@ -4,6 +4,16 @@ import { usePostsGetAll } from "@/axios/Posts/Posts.query";
 import Header from "@/components/home/Header";
 import MainGrid from "@/components/home/MainGrid";
 
+const getPostsAll = async () => {
+  const res = await fetch("/api/posts", {
+    method: "GET",
+  });
+
+  const { data } = await res.json();
+  console.log(data);
+  return data;
+};
+
 export default function Home() {
   const { mutate, isLoading } = usePostsGetAll({
     options: {
@@ -19,7 +29,8 @@ export default function Home() {
     <main>
       <Header />
       {isLoading && <h1>Loading...</h1>}
-      <button onClick={() => mutate()}>Click!</button>
+      <button onClick={() => mutate()}>React-query Click!</button>
+      <button onClick={() => getPostsAll()}>API routes Click!</button>
       <MainGrid />
     </main>
   );
